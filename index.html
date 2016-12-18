@@ -10,10 +10,37 @@
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+
+    <button type="button" id="button">loadfile</button>
+    <textarea rows="" cols="" id="content" style="width:100%; height:200px"></textarea>
+
+    <div id="holder" style="width:100%; height:200px; background:#8cA91C">把文件拖入这里</div>
   </body>
 
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
+    const fs = require('fs')
+    const http = require('http')
+    let content =document.getElementById('content')
+    let button = document.getElementById('button')
+    button.addEventListener('click', function(e) {
+      fs.readFile('package.json', 'utf8', function(err, data) {
+        content.textContent = data
+        console.log(data)
+      })
+    })
+    let holder = document.getElementById('holder')
+    holder.ondragover = function() {
+      return false
+    }
+    holder.ondrop = function(e) {
+      e.preventDefault()
+      let file = e.dataTransfer.files[0]
+      fs.readFile(file.path, 'utf8', function(err, data) {
+        holder.textContent = data
+      })
+      return false
+    }
   </script>
 </html>

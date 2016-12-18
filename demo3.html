@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>loadfile</title>
+  </head>
+  <body>
+  <p>加载网络资源：</p>
+  <button id="load">click me</button>
+  <textarea id="text" style="width: 100%;height: 500px;background: #d9e8f0">
+  </textarea>
+  </body>
+<script>
+  var fs = require('fs');
+  var http = require('http');
+  var text = document.getElementById('text');
+  var load = document.getElementById('load');
+  load.addEventListener('click',function(){
+    loadSomeData();
+  });
+
+  function loadSomeData(){
+    http.get('http://www.baidu.com',function(res){
+      res.setEncoding('utf8');
+      res.on('data',function(chunk){
+        text.textContent += chunk;
+      });
+    });
+  }
+</script>
+</html>

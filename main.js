@@ -16,8 +16,9 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 800, height: 600})
 
   // and load the index.html of the app.
+  // console.log(process.argv[2]);
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, process.argv[2] + '.html'),
     protocol: 'file:',
     slashes: true
   }))
