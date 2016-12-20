@@ -26,12 +26,16 @@ cd electron-example
 # Install dependencies
 npm install
 # Run the app
-npm start demo1 
+npm start main demo1 
 or 
-npm start demo2
+npm start main demo2
+...
+
+npm start main2 demo5
 ...
 
 ```
+Thanks （http://blog.csdn.net/ch15196637370）
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
 

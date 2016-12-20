@@ -17,7 +17,10 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     frame: true, 
     width: 800, 
-    height: 600,
+    height: 600, 
+    backgroundColor: '#2e2c29',
+    transparent: true,
+    titleBarStyle: 'hidden-inset'
   })
   // setMenuBarVisibility 隐藏菜单栏
   // mainWindow.dock.hide();
@@ -26,7 +29,7 @@ function createWindow () {
   // mainWindow.setMenuBarVisibility(false);
 
   // and load the index.html of the app.
-  console.log(process.argv[2]);
+  // console.log(process.argv[2]);
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, process.argv[3] + '.html'),
     protocol: 'file:',

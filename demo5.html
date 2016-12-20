@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0px">
+<webview id="webview" src="https://github.com/chengang4505" style="position: fixed; width:100%; height:100%"></webview>
+<script>
+    var webview = document.getElementById('webview');
+    var Menu = require('electron').remote.Menu;
+    function loadUrl(url) {
+        return function () {
+            webview.src = url;
+        }
+    }
+    var template = [
+        {
+            label: '加载网页1',
+            submenu: [
+                {
+                    label: '优酷',
+                    click:loadUrl('http://www.youku.com')
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    label: '百度',
+                    click:loadUrl('http://www.baidu.com')
+                }
+
+            ]
+        },
+        {
+            label: '加载网页2',
+            submenu:[
+                {
+                    label: 'github',
+                    click:loadUrl('http://www.github.com')
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    label: 'CSDN',
+                    click:loadUrl('http://www.csdn.net')
+                }
+            ]
+        },
+        {
+            label: '我的信息',
+            submenu:[
+                {
+                    label: '我的github',
+                    click:loadUrl('https://github.com/chengang4505')
+                },
+                {
+                    label: '欢迎star ●▂●',
+                }
+            ]
+        }
+    ];
+    var menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+</script>
+</body>
+</html>

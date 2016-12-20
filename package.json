@@ -1,12 +1,12 @@
 {
-  "name": "electron-quick-start",
+  "name": "electron-example",
   "version": "1.0.0",
   "description": "A minimal Electron application",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron index.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/tomoat/electron-example",
   "keywords": [
     "Electron",
     "quick",
@@ -14,9 +14,9 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "tomoat",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^1.4.5"
   }
 }
